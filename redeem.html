@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<head>
+<style> 
+body {
+  background-image:     url("./img/background.png");
+  background-size:      cover;
+  background-repeat:    no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: Helvetica;
+}
+div {
+  padding: 15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  text-align: center;
+}
+</style>
+</head>
+<body>
+  <div>
+    <img src="./img/logo.png" style="width: 50%; height: auto;">
+    <br>
+    <h1>Congratulations!</h1>
+    <h3 id="hiddenDuck">You've found Hidden Duck x/10!</h3>
+    <img id="duckimg" style="width: 50%; height: auto;">
+    <h3>To redeem your duck POAP, please join our discord <a href="https://discord.gg/luckyducky">here</a>, visit #verify and pass our spamfilter, then visit #redeem and follow the instructions.<br>Your redeemable code is:</h3>
+    <h1 id="code"></h1>
+    <h4>We'd greatly appreciate if you keep the games fun and keep the QR to yourselves! Much love, Lucky Ducky Team</h4>
+  </div>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const duckid = urlParams.get('duck');
+    document.getElementById("duckimg").setAttribute("src","./img/miamiduck/SHMiami" + duckid + ".png");
+    const discordCode = urlParams.get('code');
+    document.getElementById("code").innerHTML = discordCode;
+    document.getElementById("hiddenDuck").innerHTML = "You've found Hidden Duck " + duckid + "/10!";
+  </script>
+</body>
+</html>
